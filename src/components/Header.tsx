@@ -1,7 +1,9 @@
 import { useSubscribeDev } from '@subscribe.dev/react';
+import { useTheme } from '../contexts/ThemeContext';
 
 export function Header() {
   const { user, usage, subscriptionStatus, subscribe, signOut } = useSubscribeDev();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="app-header">
@@ -31,6 +33,15 @@ export function Header() {
 
           <button className="manage-button" onClick={subscribe!}>
             Manage Plan
+          </button>
+
+          <button
+            className="theme-toggle-button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
           </button>
 
           <div className="user-section">

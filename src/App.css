@@ -3,18 +3,20 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  transition: background 0.3s ease;
 }
 
 /* Header Styles */
 .app-header {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-primary);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-primary);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .header-content {
@@ -32,6 +34,7 @@
   gap: 0.75rem;
   font-size: 1.25rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .logo-icon {
@@ -49,9 +52,11 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--surface-secondary);
   border-radius: 8px;
   font-weight: 500;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
 }
 
 .plan-display {
@@ -61,29 +66,53 @@
 
 .plan-badge {
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 .manage-button {
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-secondary);
   border-radius: 8px;
-  color: white;
+  color: var(--text-primary);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .manage-button:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--surface-tertiary);
+  border-color: var(--border-tertiary);
   transform: translateY(-2px);
+}
+
+.theme-toggle-button {
+  padding: 0.5rem;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 50%;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle-button:hover {
+  background: var(--surface-tertiary);
+  border-color: var(--border-tertiary);
+  transform: rotate(15deg) scale(1.1);
 }
 
 .user-section {
@@ -102,12 +131,13 @@
 }
 
 .user-avatar-placeholder {
-  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   font-size: 1.25rem;
+  color: white;
 }
 
 .user-menu {
@@ -118,23 +148,24 @@
 
 .user-email {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
 }
 
 .sign-out-button {
   padding: 0.25rem 0.5rem;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-secondary);
   border-radius: 4px;
-  color: white;
+  color: var(--text-primary);
   font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .sign-out-button:hover {
-  background: rgba(255, 0, 0, 0.2);
-  border-color: rgba(255, 0, 0, 0.5);
+  background: var(--error-bg);
+  border-color: var(--error-border);
+  color: var(--error-text);
 }
 
 /* Main Content */
@@ -152,8 +183,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
   padding: 2rem;
+  transition: background 0.3s ease;
 }
 
 .sign-in-content {
@@ -187,7 +219,7 @@
 .sign-in-content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #646cff 0%, #61dafb 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #61dafb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -195,7 +227,7 @@
 
 .subtitle {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -212,9 +244,10 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-primary);
   border-radius: 8px;
   text-align: left;
+  transition: all 0.3s ease;
 }
 
 .feature-icon {
@@ -226,7 +259,7 @@
   padding: 1rem 2rem;
   font-size: 1.125rem;
   font-weight: 600;
-  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
   border: none;
   border-radius: 12px;
   color: white;
@@ -242,7 +275,7 @@
 
 .info-text {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-tertiary);
 }
 
 /* Video Generator */
@@ -263,18 +296,19 @@
 
 .generator-subtitle {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
 }
 
 .input-section {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-primary);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-primary);
   border-radius: 16px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .prompt-input-group {
@@ -286,16 +320,16 @@
 .prompt-input-group label {
   font-weight: 500;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 .prompt-input-group textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-secondary);
   border-radius: 8px;
-  color: white;
+  color: var(--text-primary);
   font-family: inherit;
   font-size: 1rem;
   resize: vertical;
@@ -304,12 +338,12 @@
 
 .prompt-input-group textarea:focus {
   outline: none;
-  border-color: #646cff;
-  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-color);
+  background: var(--surface-tertiary);
 }
 
 .prompt-input-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-tertiary);
 }
 
 .aspect-ratio-group {
@@ -321,7 +355,7 @@
 .aspect-ratio-group label {
   font-weight: 500;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
 }
 
 .aspect-ratio-buttons {
@@ -332,10 +366,10 @@
 .aspect-button {
   flex: 1;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-primary);
+  border: 2px solid var(--border-primary);
   border-radius: 8px;
-  color: white;
+  color: var(--text-primary);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -345,13 +379,13 @@
 }
 
 .aspect-button:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--surface-secondary);
+  border-color: var(--border-secondary);
 }
 
 .aspect-button.active {
   background: rgba(100, 108, 255, 0.2);
-  border-color: #646cff;
+  border-color: var(--primary-color);
 }
 
 .aspect-button:disabled {
@@ -361,14 +395,14 @@
 
 .aspect-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-tertiary);
 }
 
 .generate-button {
   padding: 1rem 2rem;
   font-size: 1.125rem;
   font-weight: 600;
-  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
   border: none;
   border-radius: 12px;
   color: white;
@@ -411,15 +445,15 @@
   border-radius: 8px;
   font-size: 0.875rem;
   text-align: center;
-  color: #646cff;
+  color: var(--primary-color);
 }
 
 .error-message {
   padding: 1rem;
-  background: rgba(255, 50, 50, 0.1);
-  border: 1px solid rgba(255, 50, 50, 0.3);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
   border-radius: 8px;
-  color: #ff6b6b;
+  color: var(--error-text);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -427,12 +461,13 @@
 
 /* Current Video Section */
 .current-video-section {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-primary);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-primary);
   border-radius: 16px;
   padding: 2rem;
   animation: fadeIn 0.6s ease-out;
+  transition: all 0.3s ease;
 }
 
 .current-video-section h3 {
@@ -462,9 +497,9 @@
 .download-button {
   padding: 0.75rem 1.5rem;
   background: rgba(100, 108, 255, 0.2);
-  border: 1px solid #646cff;
+  border: 1px solid var(--primary-color);
   border-radius: 8px;
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -476,6 +511,7 @@
 .download-button:hover {
   background: rgba(100, 108, 255, 0.3);
   transform: translateY(-2px);
+  color: var(--text-primary);
 }
 
 /* History Section */
@@ -495,8 +531,8 @@
 }
 
 .history-item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-primary);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -505,8 +541,8 @@
 
 .history-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-color: var(--border-secondary);
 }
 
 .history-video {
@@ -524,20 +560,21 @@
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-primary);
 }
 
 .history-meta {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-tertiary);
 }
 
 /* Footer */
 .app-footer {
   padding: 2rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-primary);
+  transition: all 0.3s ease;
 }
 
 /* Responsive Design */
